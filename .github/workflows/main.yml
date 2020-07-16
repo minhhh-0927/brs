@@ -52,6 +52,11 @@ jobs:
         
     - name: Run migrations
       run: python manage.py migrate
+      env:
+        MONGO_HOST: localhost
+        MONGO_PORT: 1234
+        MONGO_NAME: test
+        STATIC_ROOT: /
       
     - name: Run tests
       run: python manage.py test
