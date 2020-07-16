@@ -20,10 +20,10 @@ class ActivityLog(object):
     COMMENT = 'commented on book'
 
     def __init__(self):
-        self.host = settings.MONGO_LOG.get('HOST')
-        self.port = settings.MONGO_LOG.get('PORT')
+        self.host = 'localhost'
+        self.port = 1234
         self.client = pymongo.MongoClient(f'mongodb://localhost:1234/')
-        self.db = self.client[settings.MONGO_LOG.get('NAME')]
+        self.db = self.client['test']
         self.book_col = self.db['activity']
 
     def log_activity(self, source_user: User, obj_target, activity, option_content=None):
