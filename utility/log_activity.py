@@ -22,7 +22,7 @@ class ActivityLog(object):
     def __init__(self):
         self.host = settings.MONGO_LOG.get('HOST')
         self.port = settings.MONGO_LOG.get('PORT')
-        self.client = pymongo.MongoClient(f'mongodb://{self.host}:{self.port}/')
+        self.client = pymongo.MongoClient(f'mongodb://localhost:1234/')
         self.db = self.client[settings.MONGO_LOG.get('NAME')]
         self.book_col = self.db['activity']
 
